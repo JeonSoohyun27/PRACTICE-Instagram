@@ -35,6 +35,6 @@ class PhotoDelete(DeleteView):
 
 class PhotoDetail(DetailView):
     model = Photo
-    fields = ['text','image']
+    fields = ['author','text','image']
     template_name_suffix = '_detail'
     success_url = '/'

@@ -1,11 +1,11 @@
-from django.db import models
+from django.db                  import models
 from django.contrib.auth.models import User
-
+from django.urls                import reverse
 # Create your models here.
 class Photo(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
-    text = models.TextField(blank=True)
-    image = models.ImageField(upload_to='timeline_photo/%Y/%m/%d')
+    author  = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
+    text    = models.TextField(blank=True)
+    image   = models.ImageField(upload_to='timeline_photo/%Y/%m/%d')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -13,5 +13,7 @@ class Photo(models.Model):
         return "text:"+self.text
     
     class Meta:
-        # db_table = 'photos'
         ordering = ['-created']
+
+    def get_absolute_url(self):
+        return reverse('photo:detail',args=[self.id])
