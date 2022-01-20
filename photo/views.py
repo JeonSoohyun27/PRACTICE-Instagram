@@ -3,31 +3,31 @@ from django.shortcuts            import render
 from django.views.generic.list   import ListView
 from django.views.generic.edit   import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
-from .models                     import photo
+from .models                     import Photo
 class PhotoList(ListView):
-    model = photo
+    model = Photo
     template_name_suffix = '_list'
 
 class PhotoCreate(CreateView):
-    model = photo
+    model = Photo
     fields = ['text','image']
     template_name_suffix = '_create'
     success_url = '/'
 
 class PhotoUpdate(UpdateView):
-    model = photo
+    model = Photo
     fields = ['text','image']
     template_name_suffix = '_update'
     success_url = '/'
 
 class PhotoDelete(DeleteView):
-    model = photo
+    model = Photo
     fields = ['text','image']
     template_name_suffix = '_delete'
     success_url = '/'
 
 class PhotoDetail(DetailView):
-    model = photo
+    model = Photo
     fields = ['text','image']
     template_name_suffix = '_detail'
     success_url = '/'
