@@ -118,3 +118,7 @@ MEDIA_URL = '/res/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 LOGIN_REDIRECT_URL = '/'
+
+DISQUS_WEBSITE_SHORTNAME = 'soostargram'
+
+SITE_ID = 1
