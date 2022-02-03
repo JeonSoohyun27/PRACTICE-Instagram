@@ -137,8 +137,7 @@ class PhotoMyList(ListView):
     template_name = 'photo/photo_mylist.html'
 
     def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_autenticated:
+        if not request.user.is_authenticated:
             messages.warning(request,'로그인 후 이용해주세요')
             return HttpResponseRedirect('/')
         return super(PhotoMyList, self).dispatch(request, *args, **kwargs)
-        
